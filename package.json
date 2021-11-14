@@ -1,0 +1,26 @@
+{
+  "name": "caps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "global.js",
+  "scripts": {
+    "start": "node global.js",
+    "test": "jest --coverage --verbose",
+    "dev": "nodemon global.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NashatAlzaatreh/caps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NashatAlzaatreh/caps/issues"
+  },
+  "homepage": "https://github.com/NashatAlzaatreh/caps#readme",
+  "dependencies": {
+    "faker": "^5.5.3",
+    "jest": "^27.3.1"
+  }
+}
