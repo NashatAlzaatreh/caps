@@ -11,9 +11,9 @@
 
 ## Deploy, Run and Test
 
-- [test report]()
+- [test report](https://github.com/NashatAlzaatreh/caps/actions)
 
-- [Pull Request]()
+- [Pull Request](https://github.com/NashatAlzaatreh/caps/pull/1)
 
 ### Setup
 
