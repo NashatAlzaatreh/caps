@@ -11,27 +11,56 @@
 
 ## Deploy, Run and Test
 
-- [test report](https://github.com/NashatAlzaatreh/caps/actions)
+- ### `Node events`:
 
-- [Pull Request](https://github.com/NashatAlzaatreh/caps/pull/1)
+  - [test report](https://github.com/NashatAlzaatreh/caps/actions)
+  - [Pull Request](https://github.com/NashatAlzaatreh/caps/pull/1)
+
+- ### `socket.io`:
+  - [test report]()
+  - [Pull Request]()
 
 ### Setup
 
-#### Running the app
+- ### `socket.io`:
+
+  #### Running the app
+
+  `node <fileName>`
+
+  - log:
+  - returns
+    ![logs](./img/socketRunLab12.PNG)
+
+  #### Test
+
+  - Unit test: `npm run test`
+
+  - Test returns
+    ![tests](./img/passTestsLab12.PNG)
+
+  ### UML:
+
+  ![uml](./img/umlSocketio.PNG)
+
+- ### `Node events`:
+
+  #### Running the app
 
 `npm run dev`
 
 - log:
+
   - returns
     ![logs](./img/consoleLogLab11.PNG)
 
-#### Test
+  #### Test
 
-- Unit test: `npm run test`
+  - Unit test: `npm run test`
 
-- Test returns
-  ![tests](./img/eventsPassTest.PNG)
+  - Test returns
+    ![tests](./img/eventsPassTest.PNG)
 
-### UML:
+  ### UML:
 
-![uml](./img/umlEvents.PNG)
+  ![uml](./img/umlEvents.PNG)
