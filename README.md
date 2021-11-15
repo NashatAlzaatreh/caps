@@ -17,8 +17,8 @@
   - [Pull Request](https://github.com/NashatAlzaatreh/caps/pull/1)
 
 - ### `socket.io`:
-  - [test report]()
-  - [Pull Request]()
+  - [test report](https://github.com/NashatAlzaatreh/caps/actions)
+  - [Pull Request](https://github.com/NashatAlzaatreh/caps/pull/3)
 
 ### Setup
 
