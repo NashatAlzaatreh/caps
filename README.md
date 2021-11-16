@@ -13,8 +13,8 @@
 
 - ### `Message Queues`:
 
-  - [test report]()
-  - [Pull Request]()
+  - [test report](https://github.com/NashatAlzaatreh/caps/actions)
+  - [Pull Request](https://github.com/NashatAlzaatreh/caps/pull/5)
 
 - ### `Node events`:
 
