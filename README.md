@@ -11,6 +11,11 @@
 
 ## Deploy, Run and Test
 
+- ### `Message Queues`:
+
+  - [test report]()
+  - [Pull Request]()
+
 - ### `Node events`:
 
   - [test report](https://github.com/NashatAlzaatreh/caps/actions)
@@ -22,6 +27,16 @@
 
 ### Setup
 
+- ### `Message Queues`:
+
+  #### Running the app
+
+  `node <fileName>`
+
+  - log:
+
+    ![logs](./img/loglab13.PNG)
+
 - ### `socket.io`:
 
   #### Running the app
@@ -29,8 +44,8 @@
   `node <fileName>`
 
   - log:
-  - returns
-    ![logs](./img/socketRunLab12.PNG)
+    - returns
+      ![logs](./img/socketRunLab12.PNG)
 
   #### Test
 

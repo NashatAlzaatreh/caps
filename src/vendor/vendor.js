@@ -1,17 +1,39 @@
 "use strict";
 
 const io = require("socket.io-client");
-const { vendor, delivered } = require("./vendor-handler");
+const host = "http://localhost:3007";
+const talabatSocket = io.connect(`${host}/talabat`);
 
-/* ------ CONNECT ---------- */
-const host = "http://localhost:3000";
-const capsConnection = io.connect(host);
+const talabatOrders = require("./vendor-handler");
+// whenever I connect, go and pull all the msgs from the Q
+talabatSocket.emit("get_all");
 
-/* ------ Listener ---------- */
-capsConnection.on("pickup", vendor);
-capsConnection.on("delivered", delivered);
+// 1
 
-/* ------ Event Handler ---------- */
+talabatOrders.forEach((order) => {
+  talabatSocket.emit("pickup", order);
+});
+
+// 3_2
+talabatSocket.on("confirm-pickup", (payload) => {
+  console.log("Thank you for pickup the order Q>> ", payload);
+});
+
+talabatSocket.on("delivered", (payload) => {
+  console.log("Thank you for delivering  the order Q>> ", payload);
+});
+
+// lab 12
+// const io = require("socket.io-client");
+// const { vendor, delivered } = require("./vendor-handler");
+
+// /* ------ CONNECT ---------- */
+// const host = "http://localhost:3000";
+// const capsConnection = io.connect(host);
+
+// /* ------ Listener ---------- */
+// capsConnection.on("pickup", vendor);
+// capsConnection.on("delivered", delivered);
 
 // events lab 11
 

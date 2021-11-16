@@ -1,14 +1,26 @@
 "use strict";
 
 const io = require("socket.io-client");
+const host = "http://localhost:3007";
+const talabatSocket = io.connect(`${host}/talabat`);
 
-const driver = require("./driverHandler");
-/* ------ CONNECT ---------- */
-const host = "http://localhost:3000";
-const capsConnection = io.connect(host);
+// whenever I connect, go and pull all the msgs from the Q
+talabatSocket.emit("get_all");
 
-/* ------ Listener ---------- */
-capsConnection.on("in-transit", driver);
+// 4_2
+talabatSocket.on("in-transit", (payload) => {
+  console.log("driver  received the order", payload);
+  // 5
+  talabatSocket.emit("received", payload);
+});
+
+// const driver = require("./driverHandler");
+// /* ------ CONNECT ---------- */
+// const host = "http://localhost:3000";
+// const capsConnection = io.connect(host);
+
+// /* ------ Listener ---------- */
+// capsConnection.on("in-transit", driver);
 
 /* ------ Event Handler ---------- */
 // function pickupOrder(payload) {
