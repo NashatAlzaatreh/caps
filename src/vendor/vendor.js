@@ -4,7 +4,7 @@ const io = require("socket.io-client");
 const host = "http://localhost:3007";
 const talabatSocket = io.connect(`${host}/talabat`);
 
-const talabatOrders = require("./vendor-handler");
+const talabatOrders = require("./talabatOrders");
 // whenever I connect, go and pull all the msgs from the Q
 talabatSocket.emit("get_all");
 

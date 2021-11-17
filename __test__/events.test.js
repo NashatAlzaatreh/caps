@@ -43,11 +43,11 @@ describe("socket events tests", () => {
     expect(consoleSpy).toHaveBeenCalled();
   });
 
-  // test("vendor logger", () => {
-  //   vendor(payload);
-  //   delivered(payload);
-  //   expect(consoleSpy).toHaveBeenCalled();
-  // });
+  test("vendor logger", () => {
+    vendor(payload);
+    delivered(payload);
+    expect(consoleSpy).toHaveBeenCalled();
+  });
 });
 
 // lab 11 tests
