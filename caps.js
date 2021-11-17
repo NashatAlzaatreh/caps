@@ -1,5 +1,6 @@
 "use strict";
 const PORT = process.env.PORT || 3007;
+const faker = require("faker");
 
 // we created the "/" namespace or we can say the home route
 const caps = require("socket.io")(PORT);
@@ -24,14 +25,16 @@ talabat.on("connection", (socket) => {
   socket.on("pickup", (payload) => {
     console.log("vendor is adding a new order ....", payload);
 
+    let orderID = faker.datatype.uuid();
+
     // 2 add the order to the Msg Q
-    talabatQueue.orders = payload;
+    talabatQueue.orders[orderID] = payload;
 
     if (payload.store === "acme-widgets") {
-      widgetsQueue.orders = payload;
+      widgetsQueue.orders[orderID] = payload;
     }
     if (payload.store === "1-800-flowers") {
-      flowersQueue.orders = payload;
+      flowersQueue.orders[orderID] = payload;
     }
     // msgQueue.orders = payload;
     // console.log("This is a -acme-widgets- orders list >>", widgetsQueue.orders);
@@ -41,10 +44,7 @@ talabat.on("connection", (socket) => {
     socket.emit("confirm-pickup", payload);
 
     // 4 send the order to the driver
-    talabat.emit("in-transit", {
-      orderID: talabatQueue.orders,
-      clientId: socket.id,
-    });
+    talabat.emit("in-transit", { orderID: orderID, payload: talabatQueue.orders[orderID] });
 
     console.log("-----------------------------------------------------------");
   });
@@ -52,11 +52,7 @@ talabat.on("connection", (socket) => {
   // 6 >> delete the order from the Q
   socket.on("received", (payload) => {
     console.log("received from the driver and remove it from the Q ...");
-    talabat.emit("delivered", {
-      orderID: payload.orderID,
-      payload: talabatQueue.orders[payload.orderID],
-      clientId: socket.id,
-    });
+    talabat.emit("delivered", payload);
     delete talabatQueue.orders[payload.orderID];
     console.log("after deleting the order from Msg Q >>", talabatQueue);
   });
